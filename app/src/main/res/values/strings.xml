@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Powerverse</string>
+    <string name="action_search">Search</string>
 </resources>
