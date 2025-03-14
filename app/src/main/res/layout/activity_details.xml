@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/heroesSelected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        tools:text="info"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:justificationMode="inter_word"
+        android:padding="4dp"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/heroesImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:padding="23dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

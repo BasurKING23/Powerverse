@@ -1,5 +1,6 @@
 package com.angel.powerverse.adapter
 
+import android.icu.text.Transliterator.Position
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import com.angel.powerverse.R
 import com.angel.powerverse.data.SuperheroResponse
 import com.squareup.picasso.Picasso
 
-class SuperheroAdapter(var items: List<Superhero>) : RecyclerView.Adapter<SuperheroViewHolder>() {
+class SuperheroAdapter(var items: List<Superhero>, val onClick:(Int)-> Unit ) : RecyclerView.Adapter<SuperheroViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_superhero, parent, false)
@@ -21,14 +22,15 @@ class SuperheroAdapter(var items: List<Superhero>) : RecyclerView.Adapter<Superh
     override fun onBindViewHolder(holder: SuperheroViewHolder, position: Int) {
         val superhero = items[position]
         holder.render(superhero)
+        holder.itemView.setOnClickListener {
+            onClick(position)
+        }
     }
 
     override fun getItemCount(): Int = items.size
     fun updateItems(superheroList: List<Superhero>) {
 
     }
-}
-    fun updateItems(items: List<SuperheroResponse>) {
 }
 
 class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -42,4 +44,5 @@ class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 
     }
+
 }

@@ -1,8 +1,13 @@
 package com.angel.powerverse.activity
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -13,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.angel.powerverse.R
 import com.angel.powerverse.adapter.SuperheroAdapter
 import com.angel.powerverse.data.Superhero
-import com.angel.powerverse.data.SuperheroResponse
 import com.angel.powerverse.data.SuperheroService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +30,11 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: SuperheroAdapter
-    lateinit var searchView: SearchView
+   // lateinit var Super
+
+    companion object {
+        const val EXTRA_HOROSCOPE_ID = "horoscope_id"
+    }
 
 
     var superheroList: List<Superhero> = listOf()
@@ -44,7 +52,17 @@ class MainActivity : AppCompatActivity() {
         }
         recyclerView = findViewById(R.id.superrecyclerview)
 
-        adapter = SuperheroAdapter(superheroList)
+        adapter = SuperheroAdapter(superheroList) {position ->
+            val superhero = superheroList[position]
+
+            Toast.makeText(this,superhero.name,Toast.LENGTH_SHORT).show()
+
+
+            val intent = Intent(this, DetailsActivity::class.java)
+            //ntent.putExtra(DetailsActivity.SUPERHERO_ID, superhero.id)
+            startActivity(intent)
+
+        }
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 2)
@@ -52,6 +70,8 @@ class MainActivity : AppCompatActivity() {
         getretrofit("a")
     }
 
+
+    @SuppressLint("NotifyDataSetChanged")
     private fun getretrofit(query: String) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://superheroapi.com/api/7606f1c6a2b57ea22ca4bdf432bd1f9c/")
@@ -79,16 +99,16 @@ class MainActivity : AppCompatActivity() {
         val menuItem = menu?.findItem(R.id.search)
         val searchView = menuItem?.actionView as SearchView
 
-    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-        override fun onQueryTextSubmit(query: String): Boolean {
-            getretrofit(query)
-            return false
-        }
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                getretrofit(query)
+                return false
+            }
 
-        override fun onQueryTextChange(query: String): Boolean {
-            return false
-        }
-    })
+            override fun onQueryTextChange(query: String): Boolean {
+                return false
+            }
+        })
         return true
     }
 }
