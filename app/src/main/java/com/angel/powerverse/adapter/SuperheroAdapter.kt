@@ -1,23 +1,22 @@
 package com.angel.powerverse.adapter
 
-import android.icu.text.Transliterator.Position
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.angel.powerverse.data.Superhero
-import com.angel.powerverse.R
-import com.angel.powerverse.data.SuperheroResponse
+import com.example.powerverse.data.Superhero
+
+
 import com.squareup.picasso.Picasso
 
-class SuperheroAdapter(var items: List<Superhero>, val onClick:(Int)-> Unit ) : RecyclerView.Adapter<SuperheroViewHolder>() {
+
+class SuperheroAdapter(var items: List<Superhero>, val onClick: (Int) -> Unit) : Adapter<SuperheroViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_superhero, parent, false)
-        return SuperheroViewHolder(view)
+        val binding = ItemSuperheroBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SuperheroViewHolder(binding)
     }
+
+    override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: SuperheroViewHolder, position: Int) {
         val superhero = items[position]
@@ -26,23 +25,12 @@ class SuperheroAdapter(var items: List<Superhero>, val onClick:(Int)-> Unit ) : 
             onClick(position)
         }
     }
-
-    override fun getItemCount(): Int = items.size
-    fun updateItems(superheroList: List<Superhero>) {
-
-    }
 }
 
-class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-     val nameTextView: TextView = view.findViewById(R.id.nameSuperheroTextView)
-     val avatarImageView: ImageView = view.findViewById(R.id.avatarImageView)
+class SuperheroViewHolder(val binding: ItemSuperheroBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun render(superhero: Superhero) {
-        nameTextView.text =superhero.name
-        Picasso.get().load(superhero.image.url).into(avatarImageView);
-
-
+        binding.nameTextView.text = superhero.name
+        Picasso.get().load(superhero.image.url).into(binding.pictureImageView);
     }
-
 }

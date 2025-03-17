@@ -1,32 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
-
-
-    <TextView
-        android:id="@+id/heroesSelected"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        tools:text="Name"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:justificationMode="inter_word"
-        android:padding="4dp"
-        android:textAlignment="center"/>
+    tools:context=".activities.DetailActivity">
 
     <ImageView
-        android:id="@+id/heroesImageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:padding="23dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_gravity="center"/>
+        android:id="@+id/pictureImageView"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-</LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:cardCornerRadius="32dp"
+        android:layout_marginTop="-32dp"
+        android:layout_marginBottom="-32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pictureImageView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/navigationBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/menu_activity_detail_navigation"/>
+
+            <include
+                android:id="@+id/biographyContent"
+                layout="@layout/content_biography"/>
+
+            <include
+                android:id="@+id/appearanceContent"
+                layout="@layout/content_appearance"/>
+
+            <include
+                android:id="@+id/statsContent"
+                layout="@layout/content_stats"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

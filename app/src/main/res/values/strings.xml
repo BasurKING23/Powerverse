@@ -3,4 +3,8 @@
     <string name="action_search">Search</string>
     <string name="action_share">share</string>
     <string name="heroesSelected">Heroes</string>
+
+    <string name="action_biography">Biography</string>
+    <string name="action_appearance">Appearance</string>
+    <string name="action_stats">Stats</string>
 </resources>
