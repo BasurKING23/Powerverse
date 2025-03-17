@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        tools:text="info"
+        tools:text="Name"
         android:layout_gravity="center"
         android:textStyle="bold"
         android:textColor="@color/black"

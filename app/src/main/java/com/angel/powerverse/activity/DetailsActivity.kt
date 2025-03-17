@@ -1,11 +1,16 @@
 package com.angel.powerverse.activity
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.angel.powerverse.R
+import com.squareup.picasso.Picasso
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -22,4 +27,8 @@ class DetailsActivity : AppCompatActivity() {
             insets
         }
     }
+    fun loadData(){
+        Picasso.get().load(superhero.image.url).into(binding.heroesImageView)
+    }
+
 }
