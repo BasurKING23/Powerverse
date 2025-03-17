@@ -10,9 +10,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.angel.powerverse.R
 import com.angel.powerverse.adapter.SuperheroAdapter
+import com.angel.powerverse.data.SuperheroService
+import com.angel.powerverse.databinding.ActivityMainBinding
 import com.example.powerverse.data.Superhero
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,17 +24,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var recyclerView: RecyclerView
     lateinit var adapter: SuperheroAdapter
+    lateinit var binding: ActivityMainBinding
+
     var superheroList: List<Superhero> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -41,8 +42,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
-        adapter = SuperheroAdapter(superheroList) {position ->
+        adapter = SuperheroAdapter(superheroList) { position ->
             val superhero = superheroList[position]
 
             val intent = Intent(this, DetailActivity::class.java)
@@ -56,33 +56,10 @@ class MainActivity : AppCompatActivity() {
         searchSuperheroesByName("a")
     }
 
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun getretrofit(query: String) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://superheroapi.com/api/7606f1c6a2b57ea22ca4bdf432bd1f9c/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val service = retrofit.create(SuperheroService::class.java)
-
-        CoroutineScope(Dispatchers.IO).launch {
-            val result = service.findSuperheroesByName(query)
-
-            superheroList = result.results
-
-            CoroutineScope(Dispatchers.Main).launch {
-                adapter.items = superheroList
-                adapter.notifyDataSetChanged()
-
-            }
-        }
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_menu, menu)
 
-        val menuItem = menu?.findItem(R.id.action_search)
+        val menuItem = menu?.findItem(R.id.search)
         val searchView = menuItem?.actionView as SearchView
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -101,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getRetrofit(): SuperheroService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.superheroapi.com/api.php/7252591128153666/")
+            .baseUrl("https://www.superheroapi.com/api.php/7606f1c6a2b57ea22ca4bdf432bd1f9c/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

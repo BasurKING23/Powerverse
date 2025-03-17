@@ -1,6 +1,7 @@
 package com.angel.powerverse.activity
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.angel.powerverse.R
+import com.angel.powerverse.data.SuperheroService
+import com.angel.powerverse.databinding.ActivityDetailsBinding
 import com.example.powerverse.data.Superhero
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
@@ -16,27 +19,27 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class DetailsActivity<SuperheroService> : AppCompatActivity() {
+class DetailActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityDetailBinding
+    lateinit var binding: ActivityDetailsBinding
 
     lateinit var superhero: Superhero
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
 
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setContentView(R.layout.activity_details)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         val id = intent.getStringExtra("SUPERHERO_ID")!!
         getSuperheroById(id)
 
@@ -59,10 +62,21 @@ class DetailsActivity<SuperheroService> : AppCompatActivity() {
                 }
             }
             true
-            binding.navigationBar.selectedItemId = R.id.action_biography
         }
 
-        fun loadData() {
+        binding.navigationBar.selectedItemId = R.id.action_biography
+    }
+    // Manejar clic en el botón de retroceso
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish() // Cierra la actividad
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    fun loadData() {
             Picasso.get().load(superhero.image.url).into(binding.pictureImageView)
 
             supportActionBar?.title = superhero.name

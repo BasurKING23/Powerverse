@@ -1,4 +1,4 @@
-package com.example.leagueofheroes.data
+package com.angel.powerverse.data
 
 import com.example.powerverse.data.Superhero
 import com.example.powerverse.data.SuperheroResponse

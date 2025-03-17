@@ -3,6 +3,9 @@ package com.angel.powerverse.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Adapter
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.angel.powerverse.databinding.ItemSuperheroBinding
 import com.example.powerverse.data.Superhero
 
 
@@ -27,10 +30,10 @@ class SuperheroAdapter(var items: List<Superhero>, val onClick: (Int) -> Unit) :
     }
 }
 
-class SuperheroViewHolder(val binding: ItemSuperheroBinding) : RecyclerView.ViewHolder(binding.root) {
+class SuperheroViewHolder(val binding: ItemSuperheroBinding) : ViewHolder(binding.root) {
 
     fun render(superhero: Superhero) {
-        binding.nameTextView.text = superhero.name
-        Picasso.get().load(superhero.image.url).into(binding.pictureImageView);
+        binding.nameSuperheroTextView.text = superhero.name
+        Picasso.get().load(superhero.image.url).into(binding.avatarImageView);
     }
 }
