@@ -27,8 +27,6 @@ class DetailsActivity : AppCompatActivity() {
             insets
         }
     }
-    fun loadData(){
-        Picasso.get().load(superhero.image.url).into(binding.heroesImageView)
-    }
+
 
 }
