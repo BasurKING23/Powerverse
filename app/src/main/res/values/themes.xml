@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.Powerverse" parent="Base.Theme.Powerverse" />
+
+    <style name="Theme.Superheroes.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="Theme.Superheroes.PopupOverlay" parent="Theme.Material3.DayNight.NoActionBar" />
 </resources>

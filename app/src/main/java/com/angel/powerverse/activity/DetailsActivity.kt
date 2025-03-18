@@ -32,13 +32,15 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-        }
+        }*/
 
         val id = intent.getStringExtra("SUPERHERO_ID")!!
         getSuperheroById(id)
@@ -80,7 +82,7 @@ class DetailActivity : AppCompatActivity() {
             Picasso.get().load(superhero.image.url).into(binding.pictureImageView)
 
             supportActionBar?.title = superhero.name
-            supportActionBar?.subtitle = superhero.biography.realName
+            supportActionBar?.subtitle = superhero.biography.realName // No funciona con CollapsingActionBar
 
             // Biography
             binding.biographyContent.publisherTextView.text = superhero.biography.publisher
@@ -99,6 +101,13 @@ class DetailActivity : AppCompatActivity() {
             binding.appearanceContent.heightTextView.text = superhero.appearance.getHeightCm()
 
             // Stats
+            binding.statsContent.intelligence.progress = superhero.powerstats.intelligence.toIntOrNull() ?: 0
+            binding.statsContent.strength.progress = superhero.powerstats.strength.toIntOrNull() ?: 0
+            binding.statsContent.speed.progress = superhero.powerstats.speed.toIntOrNull() ?: 0
+            binding.statsContent.durability.progress = superhero.powerstats.durability.toIntOrNull() ?: 0
+            binding.statsContent.power.progress = superhero.powerstats.power.toIntOrNull() ?: 0
+            binding.statsContent.combat.progress = superhero.powerstats.combat.toIntOrNull() ?: 0
+
         }
 
         fun getRetrofit(): SuperheroService {

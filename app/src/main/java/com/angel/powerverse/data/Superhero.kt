@@ -13,7 +13,8 @@ class Superhero (
     val biography: Biography,
     val work: Work,
     val appearance: Appearance,
-    val image: Image
+    val image: Image,
+    val powerstats:Powerstats
 )
 
 class Biography (
@@ -44,5 +45,15 @@ class Appearance (
         return height[1]
     }
 }
-
 class Image (val url: String)
+{
+}
+
+class Powerstats (
+    val intelligence: String,
+    val strength: String,
+    val speed: String,
+    val durability: String,
+    val power: String,
+    val combat: String
+)

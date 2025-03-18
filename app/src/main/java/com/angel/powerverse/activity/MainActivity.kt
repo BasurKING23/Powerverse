@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         return retrofit.create(SuperheroService::class.java)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun searchSuperheroesByName(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
