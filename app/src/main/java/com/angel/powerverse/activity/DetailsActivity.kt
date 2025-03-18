@@ -33,6 +33,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+        binding.toolbarLayout.title = "Detalles del Superhéroe" // Puedes cambiarlo dinámicamente
+        binding.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -41,6 +43,7 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }*/
+
 
         val id = intent.getStringExtra("SUPERHERO_ID")!!
         getSuperheroById(id)
@@ -75,9 +78,16 @@ class DetailActivity : AppCompatActivity() {
                 finish() // Cierra la actividad
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
+        private fun showSection(visibleView: View) {
+            binding.biographyContent.root.visibility = View.GONE
+            binding.appearanceContent.root.visibility = View.GONE
+            binding.statsContent.root.visibility = View.GONE
+            visibleView.visibility = View.VISIBLE
+        }
     fun loadData() {
             Picasso.get().load(superhero.image.url).into(binding.pictureImageView)
 
