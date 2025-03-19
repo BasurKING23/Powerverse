@@ -1,5 +1,6 @@
 package com.example.powerverse.data
 
+import com.angel.powerverse.R
 import com.google.gson.annotations.SerializedName
 
 class SuperheroResponse (
@@ -16,6 +17,16 @@ class Superhero (
     val image: Image,
     val powerstats:Powerstats
 )
+{
+    fun getAlignmentColor():Int {
+        return when (biography.alignment){
+            "good" -> R.color.good
+            "bad" -> R.color.bad
+            "neutral" -> R.color.neutral
+            else -> {R.color.black}
+        }
+    }
+}
 
 class Biography (
     val publisher: String,

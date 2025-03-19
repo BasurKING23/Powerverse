@@ -8,13 +8,13 @@
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/toolbar_layout"
+        android:id="@+id/toolbarAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/Layout_collapsing"
+            android:id="@+id/toolbarTitleSuperHeroName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
@@ -26,7 +26,7 @@
             <ImageView
                 android:id="@+id/pictureImageView"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="300dp"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"/>
@@ -50,10 +50,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="24dp">
-
-
+            android:orientation="vertical">
             <include
                 android:id="@+id/biographyContent"
                 layout="@layout/content_biography" />

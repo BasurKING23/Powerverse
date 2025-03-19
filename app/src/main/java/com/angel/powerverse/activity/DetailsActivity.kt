@@ -29,7 +29,6 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityDetailsBinding.inflate(layoutInflater)
-        //binding.title = superhero.name
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
@@ -82,6 +81,7 @@ class DetailActivity : AppCompatActivity() {
     fun loadData() {
             Picasso.get().load(superhero.image.url).into(binding.pictureImageView)
 
+            binding.toolbarTitleSuperHeroName.title = superhero.name
             supportActionBar?.title = superhero.name
             supportActionBar?.subtitle = superhero.biography.realName // No funciona con CollapsingActionBar
 
@@ -89,6 +89,7 @@ class DetailActivity : AppCompatActivity() {
             binding.biographyContent.publisherTextView.text = superhero.biography.publisher
             binding.biographyContent.placeOfBirthTextView.text = superhero.biography.placeOfBirth
             binding.biographyContent.alignmentTextView.text = superhero.biography.alignment
+            binding.biographyContent.alignmentTextView.setTextColor((getColor(superhero.getAlignmentColor())))
 
             binding.biographyContent.occupationTextView.text = superhero.work.occupation
             binding.biographyContent.baseTextView.text = superhero.work.base

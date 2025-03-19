@@ -9,4 +9,7 @@
     <color name="durability">#CBBCBCBC</color>
     <color name="power">#CBC600FF</color>
     <color name="combat">#CBF541FF</color>
+    <color name="good">#CB2FFF00</color>
+    <color name="bad">#CBFF0000</color>
+    <color name="neutral">#CB999999</color>
 </resources>
