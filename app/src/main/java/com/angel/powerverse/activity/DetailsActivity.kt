@@ -29,6 +29,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityDetailsBinding.inflate(layoutInflater)
+        //binding.title = superhero.name
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
