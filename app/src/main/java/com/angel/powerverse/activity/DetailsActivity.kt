@@ -32,17 +32,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        binding.toolbarLayout.title = "Detalles del Superhéroe" // Puedes cambiarlo dinámicamente
         binding.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }*/
-
 
         val id = intent.getStringExtra("SUPERHERO_ID")!!
         getSuperheroById(id)

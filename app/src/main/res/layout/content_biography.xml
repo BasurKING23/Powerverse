@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="textEnd"
+            android:textSize="20sp"
             android:text="Publisher:"
             android:layout_marginEnd="8dp"/>
 
@@ -23,6 +24,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:textSize="20sp"
             tools:text="Marvel"
             android:textStyle="bold"/>
 
@@ -37,6 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:textAlignment="textEnd"
             android:text="Place of birth:"
             android:layout_marginEnd="8dp"/>
@@ -44,6 +47,7 @@
         <TextView
             android:id="@+id/placeOfBirthTextView"
             android:layout_width="0dp"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             tools:text="Kripton"
@@ -60,6 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:textAlignment="textEnd"
             android:text="Alignment:"
             android:layout_marginEnd="8dp"/>
@@ -67,6 +72,7 @@
         <TextView
             android:id="@+id/alignmentTextView"
             android:layout_width="0dp"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             tools:text="GOOD"
@@ -83,6 +89,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:textAlignment="textEnd"
             android:text="Occupation:"
             android:layout_marginEnd="8dp"/>
@@ -92,6 +99,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:textSize="20sp"
             tools:text="Journalist"
             android:textStyle="bold"/>
 
@@ -106,6 +114,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:textAlignment="textEnd"
             android:text="Base:"
             android:layout_marginEnd="8dp"/>
@@ -115,6 +124,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:textSize="20sp"
             tools:text="Daily Planet"
             android:textStyle="bold"/>
 
