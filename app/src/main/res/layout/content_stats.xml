@@ -6,17 +6,33 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
+<TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/table"
+        android:layout_margin="2dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            tools:text="intelligence"
-            android:text="@string/intelligence"/>
+            tools:text="Intelligence"
+            android:text="@string/intelligence"
+            android:textAlignment="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/intelligencepoints"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        tools:text="80"
+        android:text="@string/intelligence"/>
 
         <ProgressBar
             android:id="@+id/intelligence"
@@ -27,41 +43,77 @@
             android:progressTint="@color/intelligence"
             android:layout_marginTop="3dp"
             android:layout_marginHorizontal="16dp"
-            tools:ignore="MissingConstraints" />
-</LinearLayout>
-    <LinearLayout
+            tools:ignore="MissingConstraints"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</TableLayout>
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/table"
+        android:layout_margin="2dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            tools:text="strength"
-            android:text="@string/strength"/>
+            tools:text="Strength"
+            android:text="@string/strength"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/strengthpoints"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textStyle="bold"
+                tools:text="80"
+                android:text="@string/strength"/>
 
         <ProgressBar
             android:id="@+id/strength"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:progress="100"
             android:progressTint="@color/strength"
             android:layout_marginTop="3dp"
             android:layout_marginHorizontal="16dp"
-            tools:ignore="MissingConstraints" />
-    </LinearLayout>
-    <LinearLayout
+            android:layout_weight="1"/>
+
+        </LinearLayout>
+    </TableLayout>
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:background="@drawable/table"
+        android:layout_margin="2dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            tools:text="speed"
+            tools:text="Speed"
+            android:text="@string/speed"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/speedpoints"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"
+            tools:text="80"
             android:text="@string/speed"/>
 
         <ProgressBar
@@ -74,17 +126,34 @@
             android:layout_marginTop="3dp"
             android:layout_marginHorizontal="16dp"
             tools:ignore="MissingConstraints" />
-    </LinearLayout>
-    <LinearLayout
+        </LinearLayout>
+    </TableLayout>
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/table"
+        android:layout_margin="2dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            tools:text="durability"
+            tools:text="Durability"
+            android:text="@string/durability"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/durabilitypoints"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"
+            tools:text="80"
             android:text="@string/durability"/>
 
         <ProgressBar
@@ -97,21 +166,37 @@
             android:layout_marginTop="3dp"
             android:layout_marginHorizontal="16dp"
             tools:ignore="MissingConstraints" />
-    </LinearLayout>
+        </LinearLayout>
+    </TableLayout>
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/table"
+        android:layout_margin="2dp">
 
         <TextView
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:textStyle="bold"
-            tools:text="power"
+            tools:text="Power"
             android:text="@string/power"
-            tools:ignore="Suspicious0dp" />
+            tools:ignore="Suspicious0dp"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/powerpoints"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"
+            tools:text="80"
+            android:text="@string/power"/>
         <ProgressBar
             android:id="@+id/power"
             style="?android:attr/progressBarStyleHorizontal"
@@ -122,12 +207,15 @@
             android:layout_marginTop="3dp"
             android:layout_marginHorizontal="16dp"
             tools:ignore="MissingConstraints" />
-    </LinearLayout>
+        </LinearLayout>
+    </TableLayout>
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/table"
+        android:layout_margin="2dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -135,8 +223,21 @@
             android:textStyle="bold"
             tools:text="combat"
             tools:ignore="Suspicious0dp"
-            android:text="@string/combat"/>
+            android:text="@string/combat"
+            android:textAlignment="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/combatpoints"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"
+            tools:text="80"
+            android:text="@string/combat"/>
         <ProgressBar
             android:id="@+id/combat"
             style="?android:attr/progressBarStyleHorizontal"
@@ -147,7 +248,6 @@
             android:layout_marginTop="3dp"
             android:layout_marginHorizontal="16dp"
             tools:ignore="MissingConstraints" />
-    </LinearLayout>
-
-
+        </LinearLayout>
+    </TableLayout>
 </LinearLayout>

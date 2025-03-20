@@ -110,6 +110,13 @@ class DetailActivity : AppCompatActivity() {
             binding.statsContent.power.progress = superhero.powerstats.power.toIntOrNull() ?: 0
             binding.statsContent.combat.progress = superhero.powerstats.combat.toIntOrNull() ?: 0
 
+        //stats points
+        binding.statsContent.intelligencepoints.text = superhero.powerstats.intelligence
+        binding.statsContent.strengthpoints.text = superhero.powerstats.strength
+        binding.statsContent.speedpoints.text = superhero.powerstats.speed
+        binding.statsContent.durabilitypoints.text = superhero.powerstats.durability
+        binding.statsContent.powerpoints.text = superhero.powerstats.power
+        binding.statsContent.combatpoints.text = superhero.powerstats.combat
         }
 
         fun getRetrofit(): SuperheroService {

@@ -3,13 +3,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bk_name">#CB757575</color>
-    <color name="intelligence">#CBF9FF00</color>
-    <color name="strength">#CB003DFF</color>
-    <color name="speed">#CBFF0000</color>
-    <color name="durability">#CBBCBCBC</color>
-    <color name="power">#CBC600FF</color>
-    <color name="combat">#CBF541FF</color>
+    <color name="intelligence">#A3D9FF</color>
+    <color name="strength">#F4A1B2</color>
+    <color name="speed">#F56161</color>
+    <color name="durability">#D1D1D1</color>
+    <color name="power">#F4E07A</color>
+    <color name="combat">#B3F1B2</color>
     <color name="good">#CB2FFF00</color>
     <color name="bad">#CBFF0000</color>
     <color name="neutral">#CB999999</color>
+    <color name="title">#CBC0C0C0</color>
 </resources>
