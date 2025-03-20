@@ -75,7 +75,7 @@
             android:textSize="20sp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            tools:text="GOOD"
+            tools:text="Good"
             android:textStyle="bold"/>
 
     </LinearLayout>

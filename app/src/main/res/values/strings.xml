@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Powerverse</string>
     <string name="action_search">Search</string>
-    <string name="action_share">share</string>
+    <string name="action_share">Share</string>
     <string name="heroesSelected">Heroes</string>
 
     <string name="action_biography">Biography</string>

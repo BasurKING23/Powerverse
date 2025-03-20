@@ -61,17 +61,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.navigationBar.selectedItemId = R.id.action_biography
     }
-    // Manejar clic en el botón de retroceso
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish() // Cierra la actividad
-                true
-            }
 
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
         private fun showSection(visibleView: View) {
             binding.biographyContent.root.visibility = View.GONE
             binding.appearanceContent.root.visibility = View.GONE
@@ -88,9 +78,8 @@ class DetailActivity : AppCompatActivity() {
             // Biography
             binding.biographyContent.publisherTextView.text = superhero.biography.publisher
             binding.biographyContent.placeOfBirthTextView.text = superhero.biography.placeOfBirth
-            binding.biographyContent.alignmentTextView.text = superhero.biography.alignment
+            binding.biographyContent.alignmentTextView.text = superhero.biography.alignment.replaceFirstChar { it.uppercase() }
             binding.biographyContent.alignmentTextView.setTextColor((getColor(superhero.getAlignmentColor())))
-
             binding.biographyContent.occupationTextView.text = superhero.work.occupation
             binding.biographyContent.baseTextView.text = superhero.work.base
 
