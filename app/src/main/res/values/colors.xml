@@ -13,4 +13,7 @@
     <color name="bad">#CBFF0000</color>
     <color name="neutral">#CB999999</color>
     <color name="title">#CBC0C0C0</color>
+    <color name="backgroundtable">#FFFFFF</color>
+    <color name="corner">#000000</color>
+
 </resources>
